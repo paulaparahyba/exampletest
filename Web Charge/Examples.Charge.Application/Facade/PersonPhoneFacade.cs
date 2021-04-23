@@ -42,6 +42,16 @@ namespace Examples.Charge.Application.Facade
             return response;
         }
 
+        public PersonPhoneResponse Create(PersonPhoneDTO dto)
+        {
+            var domainEntity = _mapper.Map<Domain.Aggregates.PersonAggregate.PersonPhone>(dto);
+            var result = _personPhoneService.Create(domainEntity);
+            var response = new PersonPhoneResponse();
+            response.PersonPhonesObject = new List<PersonPhoneDTO>();
+            response.PersonPhonesObject.Add(_mapper.Map<PersonPhoneDTO>(result));
+            return response;
+        }
+
         public PersonPhoneResponse FindById(int id)
         {
             var result = _personPhoneService.FindById(id);

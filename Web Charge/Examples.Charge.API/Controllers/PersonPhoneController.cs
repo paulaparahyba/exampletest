@@ -39,6 +39,13 @@ namespace Examples.Charge.API.Controllers
             return Response(0, result);
         }
 
+        [HttpPost]
+        public IActionResult Create([FromBody] PersonPhoneRequest request)
+        {
+            var result = _facade.Create(request.Dto);
+            return Response(0, result);
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

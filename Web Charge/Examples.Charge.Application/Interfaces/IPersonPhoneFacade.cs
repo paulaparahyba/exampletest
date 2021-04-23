@@ -15,6 +15,8 @@ namespace Examples.Charge.Application.Interfaces
 
         PersonPhoneResponse Edit(PersonPhoneDTO dto);
 
+        PersonPhoneResponse Create(PersonPhoneDTO dto);
+
         PersonPhoneResponse Delete(int Id);
     }
 }

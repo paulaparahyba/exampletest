@@ -20,6 +20,11 @@ namespace Examples.Charge.Domain.Aggregates.PersonAggregate
             return _personPhoneRepository.Edit(p);
         }
 
+        public PersonPhone Create(PersonPhone p)
+        {
+            return _personPhoneRepository.Create(p);
+        }
+
         public bool Delete(int Id)
         {
             return _personPhoneRepository.Delete(Id);

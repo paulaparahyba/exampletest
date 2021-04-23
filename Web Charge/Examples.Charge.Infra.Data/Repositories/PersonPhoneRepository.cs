@@ -42,6 +42,14 @@ namespace Examples.Charge.Infra.Data.Repositories
             else throw new Exception("Telefone não localizado.");
         }
 
+        public PersonPhone Create(PersonPhone p)
+        {
+            _context.PersonPhone.Add(p);
+            _context.SaveChanges();
+
+            return p;
+        }
+
         public PersonPhone FindById(int id)
         {
             return _context.PersonPhone.Where(x => x.BusinessEntityID == id).FirstOrDefault();
