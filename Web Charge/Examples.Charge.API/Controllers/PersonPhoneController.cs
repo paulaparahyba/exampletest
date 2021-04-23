@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Examples.Charge.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/")]
     [ApiController]
     public class PersonPhoneController : BaseController
     {
@@ -32,14 +32,16 @@ namespace Examples.Charge.API.Controllers
             return Response(_facade.FindById(id));
         }
 
-        [HttpPost]
-        public IActionResult Post([FromBody] PersonPhoneRequest request)
+        [HttpPut]
+        [Route("Edit")]
+        public IActionResult Edit([FromBody] PersonPhoneRequest request)
         {
             var result = _facade.Edit(request.Dto);
             return Response(0, result);
         }
 
         [HttpPost]
+        [Route("Create")]
         public IActionResult Create([FromBody] PersonPhoneRequest request)
         {
             var result = _facade.Create(request.Dto);
@@ -47,6 +49,7 @@ namespace Examples.Charge.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Route("Delete")]
         public IActionResult Delete(int id)
         {
             return Response(0, _facade.Delete(id));

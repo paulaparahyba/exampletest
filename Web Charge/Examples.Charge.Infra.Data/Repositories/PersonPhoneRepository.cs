@@ -44,6 +44,7 @@ namespace Examples.Charge.Infra.Data.Repositories
 
         public PersonPhone Create(PersonPhone p)
         {
+            p.BusinessEntityID = 1;
             _context.PersonPhone.Add(p);
             _context.SaveChanges();
 
